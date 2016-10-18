@@ -5,7 +5,7 @@ RM := rm -f
 CP := cp
 
 # flags
-CFLAGS := -std=gnu99 -w -g -O0 -z execstack -fno-stack-protector
+CFLAGS := -std=gnu99 -w -g -O0 -z execstack -fno-stack-protector -U-FORTIFY-SOURCE
 
 # sources
 targets := vulnerable_01
