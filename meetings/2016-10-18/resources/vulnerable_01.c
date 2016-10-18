@@ -3,7 +3,7 @@
 #include <string.h>
 
 void foo(char* string) {
-    char buffer[12];
+    char buffer[32];
     printf("address of buffer: %p\n", buffer);
     strcpy(buffer, string);
     printf("Copy successful!\n");
