@@ -1,0 +1,5 @@
+nasm -felf64 execve.asm -o execve.o
+
+ld -o execve execve.o
+
+objdump -D execve
