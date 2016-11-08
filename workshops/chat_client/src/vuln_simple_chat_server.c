@@ -257,9 +257,6 @@ int receive_client(int client_fd, char** client_names) {
 
 // TODO: return 0 on success, any other value if client disconnected 
 int handle_client(int client_fd, char **client_names, fd_set clients) {
-    // REMOVE FROM PRODUCTION
-    size_t debug;
-
     char message[MAX_SEGMENT_SIZE];
     memset(message, 0, sizeof(message));
 
@@ -284,9 +281,9 @@ int handle_client(int client_fd, char **client_names, fd_set clients) {
     else if (strstr(message, "GOODBYE") == message)
         return 1;
 
-    // Debug to check if its returning to right spot. REMOVE FROM PRODUCTION
+    // Debug to see address of message. REMOVE FROM PRODUCTION
     else if (strstr(message, "DEBUG") == message) {        
-        sprintf(message, "BROADCAST buffer_start:%p, return_address:%p", message, (&debug+2));
+        sprintf(message, "BROADCAST message address:%p", message);
         send_all(client_fd, message);
         return 0;
     }
