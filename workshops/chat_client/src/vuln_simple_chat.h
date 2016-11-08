@@ -1,5 +1,26 @@
 // Simple definitions to be used by the simple_chat client and server
 
+/*
+// The VChat Protocol is defined as follows:
+// - All messages must be terminated by a \r\n. Any message that does not include one
+//   will be disgarded.
+// 
+// - When a user wishes to join a chatroom, they will send the following message:
+//      HELLO I'M <username>\r\n
+//   If that username has been taken, they will receive an "IN USE\r\n" reply. The
+//   client repeats this process until they provide a valid username, in which they
+//   they are accepted, or 10 tries, at which point they are dropped.
+// 
+// - Once a client has joined a chatroom, they may send "chats" using the following:
+//      BROADCAST <message>\r\n
+//   A client sends a BROADCAST to the server to send that message to all other clients.
+//   A server sends a BROADCAST to each client to forward a chat from another user.
+//
+// - When a client wishes to disconnect, they send the following message:
+//      GOODBYE\r\n
+//   A server may also use this message to inform a client that they are being disconnected.
+*/
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -30,6 +51,10 @@ int recv_all(size_t fd, char *message, size_t size) {
 
     int total = 0;
     while (total < size ) {
+        
+        // fd is the file descriptor we're receiving from, buffer is where
+        // we're putting it, and size is how big the buffer is right?
+        // Can someone check this before we ship --C
         int bytes_recv = recv(fd, buffer, size, 0);
         
         // error
@@ -39,15 +64,7 @@ int recv_all(size_t fd, char *message, size_t size) {
         // end of send, no valid ending
         if (bytes_recv == 0)
             return 1;
-
-        /*// place null terminator at end of this recv
-        if ( (total + bytes_recv) == size)
-            message[size-1] = 0;
-
-        else
-            message[total+bytes_recv] = 0;*/
-
-        // if valid message end
+        
         char *tmp = strstr(buffer, "\r\n");
         if (tmp != NULL) {
             message[size-1] = 0;
