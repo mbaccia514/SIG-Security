@@ -1,6 +1,7 @@
 // Simple definitions to be used by the simple_chat client and server
 
-/* The VChat Protocol is defined as follows:
+/*
+// The VChat Protocol is defined as follows:
 // - All messages must be terminated by a \r\n. Any message that does not include one
 //   will be disgarded.
 // 
@@ -18,7 +19,7 @@
 // - When a client wishes to disconnect, they send the following message:
 //      GOODBYE\r\n
 //   A server may also use this message to inform a client that they are being disconnected.
-
+*/
 
 #include <stdlib.h>
 #include <stdio.h>
