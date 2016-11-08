@@ -1,5 +1,25 @@
 // Simple definitions to be used by the simple_chat client and server
 
+/* The VChat Protocol is defined as follows:
+// - All messages must be terminated by a \r\n. Any message that does not include one
+//   will be disgarded.
+// 
+// - When a user wishes to join a chatroom, they will send the following message:
+//      HELLO I'M <username>\r\n
+//   If that username has been taken, they will receive an "IN USE\r\n" reply. The
+//   client repeats this process until they provide a valid username, in which they
+//   they are accepted, or 10 tries, at which point they are dropped.
+// 
+// - Once a client has joined a chatroom, they may send "chats" using the following:
+//      BROADCAST <message>\r\n
+//   A client sends a BROADCAST to the server to send that message to all other clients.
+//   A server sends a BROADCAST to each client to forward a chat from another user.
+//
+// - When a client wishes to disconnect, they send the following message:
+//      GOODBYE\r\n
+//   A server may also use this message to inform a client that they are being disconnected.
+
+
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
