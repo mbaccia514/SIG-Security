@@ -1,6 +1,9 @@
 # SIG-Security
-Public Repository for the Security special interest group at UIC
+Public Repository for the Security special interest group at UIC!  
+We meet weekly on Tuesdays at 5pm in the ACM Office (SELE 2264) or WiCS lounge.  
 
+Sign up for our mailing list at: https://acm.cs.uic.edu/mailman/listinfo/sigsec  
+ACM Calendar for Events: https://acm.cs.uic.edu/calendar/  
 
 # --Resources--
 
