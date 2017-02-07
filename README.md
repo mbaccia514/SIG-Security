@@ -1,3 +1,4 @@
+
 # SIG-Security
 Public Repository for the Security special interest group at UIC!  
 We meet weekly on Tuesdays at 5pm in the ACM Office (SELE 2264) or WiCS lounge.  
@@ -30,6 +31,7 @@ ACM Calendar for Events: https://acm.cs.uic.edu/calendar/
 
 * BlackHat - https://www.youtube.com/user/BlackHatOfficialYT/videos
 * DEFCON - https://www.youtube.com/user/DEFCONConference/videos
+* ShmooCon 2017 - https://archive.org/details/ShmooCon2017
 * 33c3 - https://media.ccc.de/c/33c3?sort=date
 * NCC Group Open Forum - https://www.meetup.com/NCCGroupChicago/
 
